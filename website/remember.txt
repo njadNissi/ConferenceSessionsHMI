@@ -1,0 +1,59 @@
+"""
+request.args.get(argName) or request.args[argName]: GET request
+request.form.get(argName) or request.form[argName]: POST request
+userInfos = json.dumps({"username":UserName, "staffid":staffid}) # parse to json
+user = json.loads(request.args['user']) # parse to object
+return redirect(url_for('views.chair_sessions', user=userInfos))
+
+
+re.search(keyword, e, re.IGNORECASE)
+
+ <!-- {% if loop.index != 0%} {% endif %} -->
+
+
+def search(keyword, body):
+    BODY = []
+    # check matches
+    for row in body:
+        chk = False
+        if substr_in_list(keyword, row):
+            BODY.append(row)
+
+    return BODY # update the relevant body
+
+
+def substr_in_list(keyword, list):
+    for e in list:
+        if keyword.lower() in e.lower():
+            return True
+    return False
+
+def get_schedule(header, reader, chair_id, keyword):
+    """
+        Returns all the sessions administered by session chair of given:
+            - chair_id
+            - keyword
+    """
+    inds = [header.index('Chair Name'), header.index('Chair Id')]
+    new_header = []
+    body = []           
+    for i in range(len(header)): # get relevant headers
+        if i not in inds:
+            new_header.append(header[i])
+    
+    for sch in reader: # traverse all the sessions
+        if sch[inds[1]] == chair_id: # a session for this session_chair
+            for i in inds: # remove columns that are not required
+                del sch[i]
+            body.append(sch) # save those who match the requirements
+    
+    return new_header, body
+
+def manual_delete_row():
+    with open('instance/schedule.csv', 'rt') as inp, open('instance/schedule.csv', ) as out:
+            writer = csv.writer(out)
+            for row in csv.reader(inp):
+                if row[0] != id:
+                    print(row[0])
+                    writer.writerow(row)
+"""

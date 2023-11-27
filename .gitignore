@@ -1,0 +1,7 @@
+.vscode
+env
+website/__pycache__
+website/database.db
+website/**/*.jpg
+website/**/*.png
+

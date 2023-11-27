@@ -1,0 +1,7 @@
+Session_Id,Date_Time,Chair Full Name,Chair Id,Room,Speaker,Topic
+jp1,8:30-10:30,John Paul,id001,room1,speaker1,topic1
+cj1,8:30-10:30,Christopher James,id002,room2,speaker1,topic2
+jp2,10:30-12:00,Johyn Paul,id001,room1,speaker2,topic3
+cj2,14:00-14:40,Christopher James,id002,room1,speaker2,topic4
+mh1,10:00-12:00,Mit Hun,id003,room4,Njad,Iot
+jc1,15:45-17:25,Jean Claude,id004,room3,Andre,Computers

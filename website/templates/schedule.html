@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block title %}Schedule{% endblock %} {% block content
+%}
+
+<h1 style="text-align: center; margin-top: 1%;">
+  <font color="blue">All Schedules</font>
+</h1>
+<table id="dashboard" border="1" width="100%" align="center">
+  <colgroup>
+    <col style="background-color: rgb(148, 245, 148);" />
+  </colgroup>
+  <thead align="center">
+    <header>
+      <ol>
+        {% for header in headers %}
+        <th style="background-color: burlywood;">
+          <h4>{{ header }}</h4>
+        </th>
+        {% endfor %}
+      </ol>
+    </header>
+  </thead>
+
+  <tbody align="center" style="font-size: 150%;">
+    {% for row in body %}
+    <tr>
+      {% for col in row %}<td>
+        <ul class="matchup matchup-{{loop.index}}">
+          {{ col }}
+          <!-- <li class="team team-top">big infos</li> -->
+          <!-- <li class="team team-bottom">some infos</li> -->
+        </ul>
+      </td>{% endfor %}
+    </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+{% endblock %}
