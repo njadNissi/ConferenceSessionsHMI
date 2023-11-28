@@ -61,6 +61,7 @@ fs==2.4.12
 future==0.18.2
 gast==0.5.2
 greenlet==3.0.1
+gunicorn==21.2.0
 gyp==0.1
 html2text==2020.1.16
 html5-parser==0.4.10

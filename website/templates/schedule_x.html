@@ -5,8 +5,8 @@
   <!-- Add new  -->
   <form action="/chair/sessions/add" method="POST">
     <p><font color="red">{% set last = body|last  %}
-        For Session_Id, We recommend you just add 1 to the number in: {{last[0]}}.
-        Otherwise, make sure you provide a unique Id!
+        For Session_Id, We recommend you use initials of your fullname +
+         number. Otherwise, make sure you provide a unique Id!
       </font> </p>
     <tr>
        {% for title in headers %}
@@ -29,7 +29,7 @@
     <th style="background-color: rgb(59, 35, 3); color: rgb(160, 195, 22); text-align: center;" colspan="2"><h4>MODIFY</h4></th>
   </thead>
 
-  <tbody id="body" name="body" align="center" style="font-size: 150%;">
+  <tbody align="center" style="background-color: rgb(33, 33, 33); color: azure; font-size: 150%;">
     {% for row in body %}
     <tr id="s{{loop.index}}">
       {% for col in row %}
@@ -43,7 +43,7 @@
       </td>
       {% endfor %}
       <td style="background-color: grey;"><a id="edit" onclick="js:editRow()"><font color='white'>edit</font></a></td>
-      <td style="background-color: red;"><a class="delete" id="remove" href="/chair/sessions/remove?id={{loop.index}}"><font color='white'>remove</font></a></td>
+      <td style="background-color: red;"><a class="delete" id="remove" href="/chair/sessions/remove?Session_Id={{row[0]}}"><font color='white'>remove</font></a></td>
     </tr>
     {% endfor %}
   </tbody>

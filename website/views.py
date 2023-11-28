@@ -60,6 +60,7 @@ def chair_sessions_add():
     if request.method == 'POST': 
         print(request.form)
         user = json.loads(session['user'])
+        session_id = request.form.get('Session_Id')
         chair_id = user['staffid']
         chairName = user['username']
         date_time = request.form.get('Date_Time')
@@ -67,7 +68,7 @@ def chair_sessions_add():
         speaker = request.form.get('Speaker')
         topic = request.form.get('Topic')
         df = pd.read_csv(SCHEDULES)
-        df.loc[len(df.index)] = [len(df.index), date_time, chairName, chair_id, room, speaker, topic]
+        df.loc[len(df.index)] = [session_id, date_time, chairName, chair_id, room, speaker, topic]
         df.to_csv(SCHEDULES, index=False)    
     return redirect(url_for('views.chair_sessions'))
 
@@ -78,8 +79,9 @@ def chair_sessions_remove():
         remove a session specified by id
     """
     if request.method == 'GET':
-        df = pd.read_csv(SCHEDULES).drop(labels=int(request.args['id'])) # read also id col; ids startb from 1 instead of 0
-        """the line bnelow allowes deleting by autoindex and updates indices."""
+        df = pd.read_csv(SCHEDULES)#.drop(labels=request.args['Session_Id'], axis=0) # read also id col; ids startb from 1 instead of 0
+        """the line below allows deleting by autoindex and updates indices."""
         # df.reset_index(drop=True, inplace=True, names='id')
+        df = df[df['Session_Id'] != request.args['Session_Id']]
         df.to_csv(SCHEDULES, index=False)     
     return redirect(url_for('views.chair_sessions'))
