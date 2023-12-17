@@ -15,7 +15,8 @@ def dashboard():
     """
         Display all the sessions and related inmformations, including details on the lower part of the page
     """
-    df = pd.read_csv(SCHEDULES, index_col=0) # leave the id column as the index column
+    df = pd.read_csv(SCHEDULES) #, index_col=0) # leave the id column as the index column
+    # df = df[['Date_Time', 'Location','Link', 'Topic', 'Speaker']]
     return render_template("schedule.html", headers=df.columns, body=df.values, total=len(df.values)) 
 
         
@@ -59,12 +60,14 @@ def chair_sessions_add():
     """
     if request.method == 'POST': 
         print(request.form)
+        # chair identification
         user = json.loads(session['user'])
         session_id = request.form.get('Session_Id')
         chair_id = user['staffid']
         chairName = user['username']
+
         date_time = request.form.get('Date_Time')
-        room = request.form.get('Room')
+        room = request.form.get('Location')
         speaker = request.form.get('Speaker')
         topic = request.form.get('Topic')
         df = pd.read_csv(SCHEDULES)

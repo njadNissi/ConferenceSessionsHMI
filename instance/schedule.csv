@@ -1,7 +1,3 @@
-Session_Id,Date_Time,Chair Full Name,Chair Id,Room,Speaker,Topic
-scx1,8:30-10:30,Session Chair1,id001,room1,speaker1,topic1
-scy2,8:30-10:30,Session Chair2,id002,room2,speaker1,topic2
-scx3,10:30-12:00,Session Chair1,id001,room1,speaker2,topic3
-scy4,14:00-14:40,Session Chair2,id002,room1,speaker2,topic4
-mh5,10:00-12:00,Mit Hun,id003,room4,Njad,Iot
-jc2,18:30-20:10,Jean Claude,id004,room3,Li Xiang,Languages and Cultures Developments
+Session_Id,Date_Time,Chair Full Name,Chair Contact,Chair Id,Link,Location,Speaker,Topic,details
+scx1,8:30-10:30,Mithun Mukherge,mithun@qq.com,id001,www.watch.com/query?v=abc123,Main Theater,Li Xiang,Languages and Cultures Developments,Language is culture and culture is language. Language and culture have a complex; homologous relationship.
+scx2,10:30-12:30,Ndombasi Diakusala J.A,njadnissi@qq.com,id002,www.watch.com/query?v=abc123,Main Theater,Kiveni Lulendo Ginias,The contributions of Technology to Society,Technology has made substantial positive contributions and progress in society and has transformed many aspects of our lives.

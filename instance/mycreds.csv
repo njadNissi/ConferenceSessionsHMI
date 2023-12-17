@@ -15,3 +15,8 @@ Date_Time,Chair Full Name,Chair Id,Room,Speaker,Topic
 14:00-14:40,Session Chair2,id002,room1,speaker2,topic4
 10:00-12:00,Mit Hun,id003,room4,Njad,Iot
 15:45-17:25,Jean Claude,id004,room3,Andre,Computers
+
+fullname,staff_id,password
+Session Chair1,id001,pwd1
+Session Chair2,id002,pwd2
+Jean Claude,id004,jnc

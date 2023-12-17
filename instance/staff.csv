@@ -1,4 +1,3 @@
-fullname,staff_id,password
-Session Chair1,id001,pwd1
-Session Chair2,id002,pwd2
-Jean Claude,id004,jnc
+fullname,degree,title,staff_id,password
+Session Chair1,Phd Electrical Engineering,IEEE Fellow,id001,pwd1
+Session Chair2,Phd Electrical Engineering,IEEE Fellow,id002,pwd2

@@ -4,18 +4,24 @@
 <h1 style="text-align: center; margin-top: 1%;">
   <font color="blue">All Schedules</font>
 </h1>
-<table id="dashboard" border="1" width="100%" align="center">
+<table id="dashboard" border="0" width="100%" align="center">
   <colgroup>
     <col style="background-color: rgb(148, 245, 148);" />
   </colgroup>
   <thead align="center">
     <header>
       <ol>
-        {% for header in headers %}
+        <th style="background-color: burlywood;">
+          <h4>infos</h4>
+        </th>
+        <!-- {% for header in headers %}
         <th style="background-color: burlywood;">
           <h4>{{ header }}</h4>
         </th>
-        {% endfor %}
+        {% endfor %} -->
+        <th style="background-color: burlywood;"><h4>{{ headers[1] }}</h4></th>
+        <th style="background-color: burlywood;"><h4>{{ headers[-3] }}</h4></th>
+        <th style="background-color: burlywood;"><h4>{{ headers[-2] }}</h4></th>
       </ol>
     </header>
   </thead>
@@ -23,16 +29,50 @@
   <tbody align="center" style="background-color: rgb(33, 33, 33); color: azure; font-size: 150%;">
     {% for row in body %}
     <tr>
-      {% for col in row %}<td>
-        <ul class="matchup matchup-{{loop.index}}">
-         {{ col }}
-          <!-- <li class="team team-top">big infos</li> -->
-          <!-- <li class="team team-bottom">some infos</li> -->
-        </ul>
-      </td>{% endfor %}
+      <td name="infos">
+        <div name="popup">
+          <a class="show-popup" href="#" data-showpopup="{{loop.index}}"><span class="fa fa-info-circle"></span></a>
+          <div class="overlay-content popup{{loop.index}}">
+            <table cellpadding="1" cellspacing="10">
+              <span class="fa fa-window-close"><strong>&nbsp;Infos</strong></span>
+              <tbody style="text-align:center">
+                <tr>
+                  <td name="speaker">
+                    <font color="yellow">{{ row[-3] }}</font>
+                  </td>
+                  <td name="topic"><strong>
+                      <font color="yellow">{{ row[-2] }}</font>
+                    </strong></td>
+                </tr>
+                <tr>
+                  <td name="speaker_img"><img width="300" height="auto"
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn0vNKh0vM2A1oD9DY_zji-W2z9pRDv77dGXXCDP4WlbmkKCnl6T1XPsaX6rC_xKIOp6Y&usqp=CAU"
+                      {{row[1]}}></td>
+                  <td name="topic_details">{{row[-1]}}</td>
+                </tr>
+                <tr>
+                  <td name="speaker_details">
+                      Phd Electrical Engineering, IEEE Fellow
+                  </td>
+                   <td>
+                  <span class="fa fa-location-arrow">Location:<strong>{{row[-4]}}</strong></span> <!--Location-->
+                    <a href="{{row[-5]}}"><span class="fa fa-video-camera">Watch online</span></a>
+                    <p>Session Chair:<strong>{{row[2]}}</strong><span class="fa fa-mail-forward">{{row[3]}}</span></p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </td>
+      <!-- {% for col in row %}<td>{{ col }}</td>{% endfor %} -->
+      <td>{{ row[1] }}</td>
+      <td>{{ row[-3] }}</td>
+      <td>{{ row[-2] }}</td>
     </tr>
     {% endfor %}
 
   </tbody>
 </table>
+
 {% endblock %}
