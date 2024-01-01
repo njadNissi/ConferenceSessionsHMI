@@ -51,7 +51,8 @@ header {
 
 /* POP-UP WINDOW */
 * {
-	margin: 0;
+	/* left: 50%; */
+	top: 50%;
 	padding: 0;
 	-moz-box-sizing: border-box; 
 	-webkit-box-sizing: border-box; 
@@ -67,14 +68,14 @@ body {
 	width: 1000px;
 	margin: 0 auto;
 }
-
+/* width: fit-content; align-self: center; */
 .overlay-bg {
 	display: none;
 	position: absolute;
 	top: 0;
 	left: 0;
-	height:100%;
-	width: 100%;
+	/* width: 75%; */
+	/* max-width: 75%; */
 	cursor: pointer;
 	z-index: 1000; /* high z-index */
 	background: #000; /* fallback */
@@ -84,11 +85,11 @@ body {
 		display: none;
 		background: #1b1b1b;
 		padding: 1%;
-		width: 40%;
+		width: 75%;
 		position: absolute;
 		top: 15%;
-		left: 50%;
-		margin: 0 0 0 -20%; /* add negative left margin for half the width to center the div */
+		left: 35%;
+		margin: 0 0 0 -20%; /*add negative left margin for half the width to center the div*/
 		cursor: default;
 		z-index: 10001;
 		border-radius: 4px;
